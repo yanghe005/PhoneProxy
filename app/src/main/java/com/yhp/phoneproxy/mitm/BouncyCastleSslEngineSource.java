@@ -294,10 +294,8 @@ public class BouncyCastleSslEngineSource implements SslEngineSource {
      *            a List of the subject alternative names to use in the server
      *            certificate, could be empty, but must not be null
      * 
-     * @see org.parosproxy.paros.security.SslCertificateServiceImpl.
-     *      createCertForHost(String)
-     * @see org.parosproxy.paros.network.SSLConnector.getTunnelSSLSocketFactory(
-     *      String)
+     * @see org.parosproxy.paros.security.SslCertificateServiceImpl.createCertForHost(String)
+     * @see org.parosproxy.paros.network.SSLConnector.getTunnelSSLSocketFactory(String)
      */
     public SSLEngine createCertForHost(final String commonName,
             final SubjectAlternativeNameHolder subjectAlternativeNames)
