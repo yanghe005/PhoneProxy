@@ -1,6 +1,7 @@
-package com.yhp.phoneproxy.mitm;
+package com.yhp.phoneproxy.proxy.mitm.little;
 
-import com.yhp.phoneproxy.utils.FileUtils;
+import com.yhp.phoneproxy.proxy.mitm.bean.Authority;
+import com.yhp.phoneproxy.util.FileUtil;
 
 import org.bouncycastle.asn1.ASN1EncodableVector;
 import org.bouncycastle.asn1.ASN1InputStream;
@@ -147,7 +148,7 @@ public final class CertificateHelper {
     }
 
     public static KeyStore createRootCertificate(Authority authority,
-            String keyStoreType) throws NoSuchAlgorithmException,
+                                                 String keyStoreType) throws NoSuchAlgorithmException,
             NoSuchProviderException, IOException,
             OperatorCreationException, CertificateException, KeyStoreException {
 
@@ -203,7 +204,7 @@ public final class CertificateHelper {
             SubjectPublicKeyInfo info = new SubjectPublicKeyInfo(seq);
             return new BcX509ExtensionUtils().createSubjectKeyIdentifier(info);
         } finally {
-            FileUtils.closeQuietly(is);
+            FileUtil.closeQuietly(is);
         }
     }
 

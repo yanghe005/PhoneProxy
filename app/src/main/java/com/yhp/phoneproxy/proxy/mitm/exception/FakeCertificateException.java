@@ -1,4 +1,4 @@
-package com.yhp.phoneproxy.mitm;
+package com.yhp.phoneproxy.proxy.mitm.exception;
 
 public class FakeCertificateException extends RuntimeException {
 
@@ -7,5 +7,4 @@ public class FakeCertificateException extends RuntimeException {
     public FakeCertificateException(String message, Throwable cause) {
         super(message, cause);
     }
-
 }

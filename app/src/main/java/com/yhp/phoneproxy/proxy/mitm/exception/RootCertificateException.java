@@ -1,4 +1,4 @@
-package com.yhp.phoneproxy.mitm;
+package com.yhp.phoneproxy.proxy.mitm.exception;
 
 public class RootCertificateException extends Exception {
 
@@ -7,5 +7,4 @@ public class RootCertificateException extends Exception {
     public RootCertificateException(String message, Throwable t) {
         super(message, t);
     }
-
 }

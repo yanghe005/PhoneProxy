@@ -1,7 +1,7 @@
 package com.yhp.phoneproxy.proxy.mitm.tools;
 
 import com.yhp.phoneproxy.proxy.mitm.CertificateAndKey;
-import com.yhp.phoneproxy.proxy.mitm.CertificateInfo;
+import com.yhp.phoneproxy.proxy.mitm.bean.CertificateInfo;
 
 import java.io.File;
 import java.io.Reader;

@@ -1,7 +1,9 @@
-package com.yhp.phoneproxy;
+package com.yhp.phoneproxy.view;
 
 import android.app.Activity;
 import android.os.Bundle;
+
+import com.yhp.phoneproxy.R;
 
 public class MainActivity extends Activity {
 

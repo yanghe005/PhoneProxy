@@ -1,14 +1,13 @@
-package com.yhp.phoneproxy.mitm;
+package com.yhp.phoneproxy.proxy.mitm.little;
+
+import com.yhp.phoneproxy.proxy.mitm.manager.CertificateSniffingMitmManager;
 
 import org.littleshoot.proxy.HttpProxyServerBootstrap;
 import org.littleshoot.proxy.impl.DefaultHttpProxyServer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.File;
-
 public class Launcher {
-
     private static final Logger log = LoggerFactory.getLogger(Launcher.class);
 
     public static void main(final String... args) {
@@ -24,7 +23,6 @@ public class Launcher {
 
             System.out.println("About to start...");
             bootstrap.start();
-
         } catch (Exception e) {
             log.error(e.getMessage(), e);
             System.exit(1);

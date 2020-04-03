@@ -1,4 +1,4 @@
-package com.yhp.phoneproxy.proxy.mitm;
+package com.yhp.phoneproxy.proxy.mitm.bean;
 
 import java.util.Collections;
 import java.util.Date;

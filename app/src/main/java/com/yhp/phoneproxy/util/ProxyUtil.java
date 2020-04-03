@@ -1,4 +1,4 @@
-package com.yhp.phoneproxy.utils;
+package com.yhp.phoneproxy.util;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -9,9 +9,9 @@ import android.util.ArrayMap;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
-public class ProxyUtils {
+public class ProxyUtil {
 
-    private static final String LOG_TAG = "ProxyWebUtils";
+    private static final String LOG_TAG = "ProxyWebUtil";
 
 
     public static boolean setProxy(Context context, String host, int port) {

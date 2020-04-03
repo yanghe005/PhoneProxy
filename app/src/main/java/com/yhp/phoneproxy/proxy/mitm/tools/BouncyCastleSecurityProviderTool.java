@@ -4,7 +4,7 @@ import android.os.Build;
 
 import com.google.common.net.InetAddresses;
 import com.yhp.phoneproxy.proxy.mitm.CertificateAndKey;
-import com.yhp.phoneproxy.proxy.mitm.CertificateInfo;
+import com.yhp.phoneproxy.proxy.mitm.bean.CertificateInfo;
 import com.yhp.phoneproxy.proxy.mitm.exception.CertificateCreationException;
 import com.yhp.phoneproxy.proxy.mitm.exception.ExportException;
 import com.yhp.phoneproxy.proxy.mitm.exception.ImportException;

@@ -2,6 +2,7 @@ package com.yhp.phoneproxy.proxy.mitm;
 
 import com.google.common.base.Supplier;
 import com.google.common.base.Suppliers;
+import com.yhp.phoneproxy.proxy.mitm.bean.CertificateInfo;
 import com.yhp.phoneproxy.proxy.mitm.keys.KeyGenerator;
 import com.yhp.phoneproxy.proxy.mitm.keys.RSAKeyGenerator;
 import com.yhp.phoneproxy.proxy.mitm.tools.DefaultSecurityProviderTool;
@@ -33,8 +34,8 @@ import java.util.Date;
  * <li>{@link #saveRootCertificateAndKey(String, File, String, String)}</li>
  * </ul>
  */
-public class RootCertificateGenerator implements CertificateAndKeySource {
-    private static final Logger log = LoggerFactory.getLogger(RootCertificateGenerator.class);
+public class RootCertificateSource implements CertificateAndKeySource {
+    private static final Logger log = LoggerFactory.getLogger(RootCertificateSource.class);
 
     private final CertificateInfo rootCertificateInfo;
 
@@ -60,10 +61,10 @@ public class RootCertificateGenerator implements CertificateAndKeySource {
         }
     });
 
-    public RootCertificateGenerator(CertificateInfo rootCertificateInfo,
-                                    String messageDigest,
-                                    KeyGenerator keyGenerator,
-                                    SecurityProviderTool securityProviderTool) {
+    public RootCertificateSource(CertificateInfo rootCertificateInfo,
+                                 String messageDigest,
+                                 KeyGenerator keyGenerator,
+                                 SecurityProviderTool securityProviderTool) {
         if (rootCertificateInfo == null) {
             throw new IllegalArgumentException("CA root certificate cannot be null");
         }
@@ -184,7 +185,7 @@ public class RootCertificateGenerator implements CertificateAndKeySource {
     }
 
     /**
-     * A Builder for {@link RootCertificateGenerator}s. Initialized with suitable default values suitable for most purposes.
+     * A Builder for {@link RootCertificateSource}s. Initialized with suitable default values suitable for most purposes.
      */
     public static class Builder {
         private CertificateInfo certificateInfo = new CertificateInfo()
@@ -232,8 +233,8 @@ public class RootCertificateGenerator implements CertificateAndKeySource {
             return this;
         }
 
-        public RootCertificateGenerator build() {
-            return new RootCertificateGenerator(certificateInfo, messageDigest, keyGenerator, securityProviderTool);
+        public RootCertificateSource build() {
+            return new RootCertificateSource(certificateInfo, messageDigest, keyGenerator, securityProviderTool);
         }
     }
 

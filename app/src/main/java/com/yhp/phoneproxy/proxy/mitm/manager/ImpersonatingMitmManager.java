@@ -9,10 +9,10 @@ import com.google.common.cache.CacheBuilder;
 import com.google.common.collect.ImmutableList;
 import com.yhp.phoneproxy.proxy.mitm.CertificateAndKey;
 import com.yhp.phoneproxy.proxy.mitm.CertificateAndKeySource;
-import com.yhp.phoneproxy.proxy.mitm.CertificateInfo;
+import com.yhp.phoneproxy.proxy.mitm.bean.CertificateInfo;
 import com.yhp.phoneproxy.proxy.mitm.CertificateInfoGenerator;
 import com.yhp.phoneproxy.proxy.mitm.HostnameCertificateInfoGenerator;
-import com.yhp.phoneproxy.proxy.mitm.RootCertificateGenerator;
+import com.yhp.phoneproxy.proxy.mitm.RootCertificateSource;
 import com.yhp.phoneproxy.proxy.mitm.TrustSource;
 import com.yhp.phoneproxy.proxy.mitm.exception.MitmException;
 import com.yhp.phoneproxy.proxy.mitm.exception.SslContextInitializationException;
@@ -347,7 +347,7 @@ public class ImpersonatingMitmManager implements MitmManager {
     }
 
     /**
-     * Convenience method to return a new {@link Builder} instance default default values: a {@link RootCertificateGenerator}
+     * Convenience method to return a new {@link Builder} instance default default values: a {@link RootCertificateSource}
      * that dynamically generates an RSA root certificate and RSA server certificates.
      */
     public static Builder builder() {
@@ -361,7 +361,7 @@ public class ImpersonatingMitmManager implements MitmManager {
     public static Builder builderWithECC() {
         return new Builder()
                 .serverKeyGenerator(new ECKeyGenerator())
-                .rootCertificateSource(RootCertificateGenerator.builder()
+                .rootCertificateSource(RootCertificateSource.builder()
                         .keyGenerator(new ECKeyGenerator())
                         .build());
     }
@@ -370,7 +370,7 @@ public class ImpersonatingMitmManager implements MitmManager {
      * A Builder for {@link ImpersonatingMitmManager}s. Initialized with suitable default values suitable for most purposes.
      */
     public static class Builder {
-        private CertificateAndKeySource rootCertificateSource = RootCertificateGenerator.builder().build();
+        private CertificateAndKeySource rootCertificateSource = RootCertificateSource.builder().build();
 
         private KeyGenerator serverKeyGenerator = new RSAKeyGenerator();
 
@@ -393,7 +393,7 @@ public class ImpersonatingMitmManager implements MitmManager {
          * The source of the CA root certificate that will be used to sign the impersonated server certificates. Custom
          * certificates can be used by supplying an implementation of {@link CertificateAndKeySource}, such as
          * {@link net.lightbody.bmp.mitm.PemFileCertificateSource}. Alternatively, a new root certificate can be generated
-         * and saved (for later import into browsers) using {@link RootCertificateGenerator}.
+         * and saved (for later import into browsers) using {@link RootCertificateSource}.
          *
          * @param certificateAndKeySource impersonation materials source to use
          */

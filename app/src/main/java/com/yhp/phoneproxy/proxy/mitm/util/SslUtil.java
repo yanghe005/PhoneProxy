@@ -7,7 +7,7 @@ import com.google.common.base.Suppliers;
 import com.google.common.io.CharStreams;
 import com.yhp.phoneproxy.proxy.mitm.TrustSource;
 import com.yhp.phoneproxy.proxy.mitm.exception.SslContextInitializationException;
-import com.yhp.phoneproxy.proxy.mitm.trustmanager.InsecureTrustManagerFactory;
+import com.yhp.phoneproxy.proxy.mitm.trust.InsecureTrustManagerFactory;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

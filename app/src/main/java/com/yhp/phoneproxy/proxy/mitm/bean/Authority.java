@@ -1,4 +1,4 @@
-package com.yhp.phoneproxy.mitm;
+package com.yhp.phoneproxy.proxy.mitm.bean;
 
 import android.os.Environment;
 

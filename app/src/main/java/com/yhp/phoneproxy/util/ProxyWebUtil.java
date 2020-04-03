@@ -1,4 +1,4 @@
-package com.yhp.phoneproxy.utils;
+package com.yhp.phoneproxy.util;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
@@ -19,9 +19,9 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Map;
 
-public class ProxyWebUtils {
+public class ProxyWebUtil {
 
-    private static final String LOG_TAG = "ProxyWebUtils";
+    private static final String LOG_TAG = "ProxyWebUtil";
 
 
     public static boolean setProxy(WebView webview, String host, int port) {

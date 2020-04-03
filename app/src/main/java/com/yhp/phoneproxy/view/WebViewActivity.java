@@ -1,9 +1,11 @@
-package com.yhp.phoneproxy;
+package com.yhp.phoneproxy.view;
 
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+
+import com.yhp.phoneproxy.R;
 
 /**
  * 作者：YangHePeng

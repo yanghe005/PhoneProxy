@@ -1,4 +1,4 @@
-package com.yhp.phoneproxy.mitm;
+package com.yhp.phoneproxy.proxy.mitm.trust;
 
 import java.security.KeyStore;
 import java.security.KeyStoreException;
@@ -69,5 +69,4 @@ public class MergeTrustManager implements X509TrustManager {
         throw new IllegalStateException("Missed X509TrustManager in "
                 + Arrays.toString(trustManagers));
     }
-
 }

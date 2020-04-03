@@ -1,4 +1,10 @@
-package com.yhp.phoneproxy.mitm;
+package com.yhp.phoneproxy.proxy.mitm.manager;
+
+import com.yhp.phoneproxy.proxy.mitm.bean.Authority;
+import com.yhp.phoneproxy.proxy.mitm.little.BouncyCastleSslEngineSource;
+import com.yhp.phoneproxy.proxy.mitm.exception.FakeCertificateException;
+import com.yhp.phoneproxy.proxy.mitm.exception.RootCertificateException;
+import com.yhp.phoneproxy.proxy.mitm.little.SubjectAlternativeNameHolder;
 
 import org.littleshoot.proxy.MitmManager;
 import org.slf4j.Logger;

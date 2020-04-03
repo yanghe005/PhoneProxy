@@ -1,4 +1,4 @@
-package com.yhp.phoneproxy.proxy.mitm.trustmanager;
+package com.yhp.phoneproxy.proxy.mitm.trust;
 
 import android.os.Build;
 
