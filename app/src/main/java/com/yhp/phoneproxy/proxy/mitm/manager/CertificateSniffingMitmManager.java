@@ -1,6 +1,6 @@
 package com.yhp.phoneproxy.proxy.mitm.manager;
 
-import com.yhp.phoneproxy.proxy.mitm.bean.Authority;
+import com.yhp.phoneproxy.proxy.bean.Authority;
 import com.yhp.phoneproxy.proxy.mitm.little.BouncyCastleSslEngineSource;
 import com.yhp.phoneproxy.proxy.mitm.exception.FakeCertificateException;
 import com.yhp.phoneproxy.proxy.mitm.exception.RootCertificateException;

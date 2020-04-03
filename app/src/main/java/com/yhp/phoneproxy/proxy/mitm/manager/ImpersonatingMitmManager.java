@@ -9,7 +9,7 @@ import com.google.common.cache.CacheBuilder;
 import com.google.common.collect.ImmutableList;
 import com.yhp.phoneproxy.proxy.mitm.CertificateAndKey;
 import com.yhp.phoneproxy.proxy.mitm.CertificateAndKeySource;
-import com.yhp.phoneproxy.proxy.mitm.bean.CertificateInfo;
+import com.yhp.phoneproxy.proxy.bean.CertificateInfo;
 import com.yhp.phoneproxy.proxy.mitm.CertificateInfoGenerator;
 import com.yhp.phoneproxy.proxy.mitm.HostnameCertificateInfoGenerator;
 import com.yhp.phoneproxy.proxy.mitm.RootCertificateSource;

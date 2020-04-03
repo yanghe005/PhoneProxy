@@ -2,7 +2,7 @@ package com.yhp.phoneproxy.proxy.mitm.little;
 
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
-import com.yhp.phoneproxy.proxy.mitm.bean.Authority;
+import com.yhp.phoneproxy.proxy.bean.Authority;
 import com.yhp.phoneproxy.proxy.mitm.exception.RootCertificateException;
 import com.yhp.phoneproxy.proxy.mitm.trust.MergeTrustManager;
 import com.yhp.phoneproxy.util.FileUtil;

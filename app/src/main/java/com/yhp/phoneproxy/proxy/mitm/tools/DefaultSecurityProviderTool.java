@@ -4,7 +4,7 @@ import android.os.Build;
 
 import com.google.common.io.CharStreams;
 import com.yhp.phoneproxy.proxy.mitm.CertificateAndKey;
-import com.yhp.phoneproxy.proxy.mitm.bean.CertificateInfo;
+import com.yhp.phoneproxy.proxy.bean.CertificateInfo;
 import com.yhp.phoneproxy.proxy.mitm.exception.ImportException;
 import com.yhp.phoneproxy.proxy.mitm.exception.KeyStoreAccessException;
 import com.yhp.phoneproxy.proxy.mitm.util.KeyStoreUtil;

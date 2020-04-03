@@ -1,6 +1,6 @@
 package com.yhp.phoneproxy.proxy.mitm.little;
 
-import com.yhp.phoneproxy.proxy.mitm.bean.Authority;
+import com.yhp.phoneproxy.proxy.bean.Authority;
 import com.yhp.phoneproxy.util.FileUtil;
 
 import org.bouncycastle.asn1.ASN1EncodableVector;

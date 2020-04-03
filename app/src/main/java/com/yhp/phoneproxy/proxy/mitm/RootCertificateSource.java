@@ -2,7 +2,7 @@ package com.yhp.phoneproxy.proxy.mitm;
 
 import com.google.common.base.Supplier;
 import com.google.common.base.Suppliers;
-import com.yhp.phoneproxy.proxy.mitm.bean.CertificateInfo;
+import com.yhp.phoneproxy.proxy.bean.CertificateInfo;
 import com.yhp.phoneproxy.proxy.mitm.keys.KeyGenerator;
 import com.yhp.phoneproxy.proxy.mitm.keys.RSAKeyGenerator;
 import com.yhp.phoneproxy.proxy.mitm.tools.DefaultSecurityProviderTool;

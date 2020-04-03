@@ -3,7 +3,7 @@ package com.yhp.phoneproxy.proxy;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.MapMaker;
-import com.yhp.phoneproxy.proxy.mitm.bean.Authority;
+import com.yhp.phoneproxy.proxy.bean.Authority;
 import com.yhp.phoneproxy.proxy.mitm.manager.CertificateSniffingMitmManager;
 import com.yhp.phoneproxy.proxy.client.ClientUtil;
 import com.yhp.phoneproxy.proxy.core.har.Har;

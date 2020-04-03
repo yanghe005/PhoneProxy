@@ -1,6 +1,6 @@
 package com.yhp.phoneproxy.proxy.mitm;
 
-import com.yhp.phoneproxy.proxy.mitm.bean.CertificateInfo;
+import com.yhp.phoneproxy.proxy.bean.CertificateInfo;
 
 import java.security.cert.X509Certificate;
 import java.util.Date;
