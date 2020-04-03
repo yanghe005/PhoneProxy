@@ -1,6 +1,5 @@
 package com.yhp.phoneproxy.mitm;
 
-import org.apache.log4j.xml.DOMConfigurator;
 import org.littleshoot.proxy.HttpProxyServerBootstrap;
 import org.littleshoot.proxy.impl.DefaultHttpProxyServer;
 import org.slf4j.Logger;
@@ -13,12 +12,6 @@ public class Launcher {
     private static final Logger log = LoggerFactory.getLogger(Launcher.class);
 
     public static void main(final String... args) {
-        File log4jConfigurationFile = new File(
-                "src/test/resources/log4j.xml");
-        if (log4jConfigurationFile.exists()) {
-            DOMConfigurator.configureAndWatch(
-                    log4jConfigurationFile.getAbsolutePath(), 15);
-        }
         try {
             final int port = 9090;
 

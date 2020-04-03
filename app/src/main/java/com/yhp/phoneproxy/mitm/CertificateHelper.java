@@ -1,6 +1,7 @@
 package com.yhp.phoneproxy.mitm;
 
-import org.apache.commons.io.IOUtils;
+import com.yhp.phoneproxy.utils.FileUtils;
+
 import org.bouncycastle.asn1.ASN1EncodableVector;
 import org.bouncycastle.asn1.ASN1InputStream;
 import org.bouncycastle.asn1.ASN1Sequence;
@@ -202,7 +203,7 @@ public final class CertificateHelper {
             SubjectPublicKeyInfo info = new SubjectPublicKeyInfo(seq);
             return new BcX509ExtensionUtils().createSubjectKeyIdentifier(info);
         } finally {
-            IOUtils.closeQuietly(is);
+            FileUtils.closeQuietly(is);
         }
     }
 

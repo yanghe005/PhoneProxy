@@ -2,8 +2,8 @@ package com.yhp.phoneproxy.mitm;
 
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
+import com.yhp.phoneproxy.utils.FileUtils;
 
-import org.apache.commons.io.IOUtils;
 import org.bouncycastle.openssl.jcajce.JcaPEMWriter;
 import org.bouncycastle.operator.OperatorCreationException;
 import org.littleshoot.proxy.SslEngineSource;
@@ -227,7 +227,7 @@ public class BouncyCastleSslEngineSource implements SslEngineSource {
                     authority.aliasFile(KEY_STORE_FILE_EXTENSION));
             keystore.store(os, authority.password());
         } finally {
-            IOUtils.closeQuietly(os);
+            FileUtils.closeQuietly(os);
         }
 
         Certificate cert = keystore.getCertificate(authority.alias());
@@ -273,7 +273,7 @@ public class BouncyCastleSslEngineSource implements SslEngineSource {
                     authority.aliasFile(KEY_STORE_FILE_EXTENSION));
             ks.load(is, authority.password());
         } finally {
-            IOUtils.closeQuietly(is);
+            FileUtils.closeQuietly(is);
         }
         return ks;
     }
@@ -294,8 +294,8 @@ public class BouncyCastleSslEngineSource implements SslEngineSource {
      *            a List of the subject alternative names to use in the server
      *            certificate, could be empty, but must not be null
      * 
-     * @see org.parosproxy.paros.security.SslCertificateServiceImpl.createCertForHost(String)
-     * @see org.parosproxy.paros.network.SSLConnector.getTunnelSSLSocketFactory(String)
+     * @see SslCertificateServiceImpl.createCertForHost(String)
+     * @see SSLConnector.getTunnelSSLSocketFactory(String)
      */
     public SSLEngine createCertForHost(final String commonName,
             final SubjectAlternativeNameHolder subjectAlternativeNames)
@@ -371,8 +371,8 @@ public class BouncyCastleSslEngineSource implements SslEngineSource {
                 pw.flush();
             }
         } finally {
-            IOUtils.closeQuietly(pw);
-            IOUtils.closeQuietly(sw);
+            FileUtils.closeQuietly(pw);
+            FileUtils.closeQuietly(sw);
         }
     }
 
