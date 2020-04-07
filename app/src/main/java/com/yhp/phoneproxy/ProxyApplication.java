@@ -1,10 +1,9 @@
 package com.yhp.phoneproxy;
 
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 import android.support.multidex.MultiDexApplication;
 import android.util.Log;
 
+import com.yhp.phoneproxy.common.SpKey;
 import com.yhp.phoneproxy.proxy.BrowserMobProxy;
 import com.yhp.phoneproxy.proxy.BrowserMobProxyServer;
 import com.yhp.phoneproxy.proxy.bean.ResponseFilterRule;
@@ -17,6 +16,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.Random;
+import java.util.concurrent.Executors;
 
 /**
  * 作者：YangHePeng
@@ -38,6 +38,13 @@ public class ProxyApplication extends MultiDexApplication {
         super.onCreate();
 
         instance = this;
+
+        Executors.newFixedThreadPool(1).submit(new Runnable() {
+            @Override
+            public void run() {
+                startProxy();
+            }
+        });
     }
 
     public static ProxyApplication getInstance() {
@@ -57,22 +64,17 @@ public class ProxyApplication extends MultiDexApplication {
 
             proxy = new BrowserMobProxyServer();
             proxy.setTrustAllServers(true);
-            proxy.start(randNum);
+            proxy.start(proxyPort);
         }
-        Log.e("~~~", proxy.getPort() + "");
 
-
-        Object object = SharedPreferenceUtil.get(this.getApplicationContext(), "response_filter");
+        Object object = SharedPreferenceUtil.get(SpKey.KEY_RESPONSE_FILTER);
         if (object != null && object instanceof List) {
             ruleList = (List<ResponseFilterRule>) object;
         }
 
-        SharedPreferences shp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-
-        if (shp.getBoolean("enable_filter", false)) {
-            Log.e("~~~enable_filter", "");
-            initResponseFilter();
-        }
+//        if (SharedPreferenceUtil.getBoolean(SpKey.KEY_ENABLE_FILTER, false)) {
+//            initResponseFilter();
+//        }
 
         // 设置hosts
 //        if (shp.getString("system_host", "").length() > 0) {

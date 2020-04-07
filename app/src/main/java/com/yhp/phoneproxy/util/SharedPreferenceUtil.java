@@ -1,9 +1,10 @@
 package com.yhp.phoneproxy.util;
 
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.util.Base64;
+
+import com.yhp.phoneproxy.ProxyApplication;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -17,18 +18,18 @@ import java.io.ObjectOutputStream;
  */
 public class SharedPreferenceUtil {
 
-    public static void putInt(Context context, String key, int value) {
+    public static void putInt(String key, int value) {
         try {
-            SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
+            SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(ProxyApplication.getInstance());
             sp.edit().putInt(key, value).apply();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public static int getInt(Context context, String key, int defaultValue) {
+    public static int getInt(String key, int defaultValue) {
         try {
-            SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
+            SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(ProxyApplication.getInstance());
             return sp.getInt(key, defaultValue);
         } catch (Exception e) {
             e.printStackTrace();
@@ -36,18 +37,18 @@ public class SharedPreferenceUtil {
         }
     }
 
-    public static void putLong(Context context, String key, long value) {
+    public static void putLong(String key, long value) {
         try {
-            SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
+            SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(ProxyApplication.getInstance());
             sp.edit().putLong(key, value).apply();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public static long getLong(Context context, String key, long defaultValue) {
+    public static long getLong(String key, long defaultValue) {
         try {
-            SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
+            SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(ProxyApplication.getInstance());
             return sp.getLong(key, defaultValue);
         } catch (Exception e) {
             e.printStackTrace();
@@ -55,18 +56,18 @@ public class SharedPreferenceUtil {
         }
     }
 
-    public static void putString(Context context, String key, String value) {
+    public static void putString(String key, String value) {
         try {
-            SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
+            SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(ProxyApplication.getInstance());
             sp.edit().putString(key, value).apply();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public static String getString(Context context, String key, String defaultValue) {
+    public static String getString(String key, String defaultValue) {
         try {
-            SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
+            SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(ProxyApplication.getInstance());
             return sp.getString(key, defaultValue);
         } catch (Exception e) {
             e.printStackTrace();
@@ -74,18 +75,18 @@ public class SharedPreferenceUtil {
         }
     }
 
-    public static void putBoolean(Context context, String key, boolean value) {
+    public static void putBoolean(String key, boolean value) {
         try {
-            SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
+            SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(ProxyApplication.getInstance());
             sp.edit().putBoolean(key, value).apply();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public static boolean getBoolean(Context context, String key, boolean defaultValue) {
+    public static boolean getBoolean(String key, boolean defaultValue) {
         try {
-            SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
+            SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(ProxyApplication.getInstance());
             return sp.getBoolean(key, defaultValue);
         } catch (Exception e) {
             e.printStackTrace();
@@ -93,9 +94,9 @@ public class SharedPreferenceUtil {
         }
     }
 
-    public static void remove(Context context, String key) {
+    public static void remove(String key) {
         try {
-            SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
+            SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(ProxyApplication.getInstance());
             sp.edit().remove(key).apply();
         } catch (Exception e) {
             e.printStackTrace();
@@ -149,12 +150,11 @@ public class SharedPreferenceUtil {
     /**
      * 使用SharedPreference保存对象
      *
-     * @param context    context
      * @param key        储存对象的key
      * @param saveObject 储存的对象
      */
-    public static void save(Context context, String key, Object saveObject) {
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+    public static void save(String key, Object saveObject) {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(ProxyApplication.getInstance());
         SharedPreferences.Editor editor = sharedPreferences.edit();
         String string = Object2String(saveObject);
         editor.putString(key, string);
@@ -164,12 +164,11 @@ public class SharedPreferenceUtil {
     /**
      * 获取SharedPreference保存的对象
      *
-     * @param context    context
      * @param key     储存对象的key
      * @return object 返回根据key得到的对象
      */
-    public static Object get(Context context, String key) {
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+    public static Object get(String key) {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(ProxyApplication.getInstance());
         String string = sharedPreferences.getString(key, null);
         if (string != null) {
             Object object = String2Object(string);
